@@ -1,10 +1,14 @@
 import { Tool } from "@raycast/api";
-import { stopFocus } from "../utils";
+import { isFocusRunning, stopFocus } from "../utils";
 
 /**
  * Stops the currently active focus session in the Focus app.
  */
 export default async function tool() {
+  const isRunning = await isFocusRunning();
+  if (!isRunning) {
+    return "No active focus session to stop.";
+  }
   await stopFocus();
   return "Focus session stopped.";
 }

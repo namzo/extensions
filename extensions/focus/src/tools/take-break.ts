@@ -1,4 +1,4 @@
-import { takeBreak5, takeBreakCustom } from "../utils";
+import { isFocusRunning, takeBreak5, takeBreakCustom } from "../utils";
 
 type Input = {
   /**
@@ -12,6 +12,10 @@ type Input = {
  * Specify a duration in minutes for a custom break length.
  */
 export default async function tool(input: Input) {
+  const isRunning = await isFocusRunning();
+  if (!isRunning) {
+    return "No active focus session found — cannot start a break.";
+  }
   if (input.minutes && input.minutes > 0) {
     await takeBreakCustom(input.minutes);
     return `${input.minutes}-minute break started.`;
