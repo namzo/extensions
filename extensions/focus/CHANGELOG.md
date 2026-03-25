@@ -1,4 +1,7 @@
 # Focus Changelog
+## [Enhancement] - {PR_MERGE_DATE}
+- Added `@Focus` AI extension support — type `@Focus` in Raycast AI Chat to start/stop sessions and take breaks using natural language.
+- Start commands now automatically launch the Focus app if it isn't running, instead of showing an error.
 
 ## [Fix] - 2026-03-18
 - Fixed a timeout error when opening Focus preferences from the "No profiles found" state.
