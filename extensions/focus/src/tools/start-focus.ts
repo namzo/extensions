@@ -1,4 +1,4 @@
-import { startFocus, startFocusCustom, startFocusWithProfile } from "../utils";
+import { getInstallStatus, startFocus, startFocusCustom, startFocusWithProfile } from "../utils";
 
 type Input = {
   /**
@@ -22,6 +22,10 @@ type Input = {
  * If a session is already running, starting a new one will replace it.
  */
 export default async function tool(input: Input) {
+  if (!(await getInstallStatus())) {
+    throw new Error("Focus is not installed. Install it from: https://heyfocus.com");
+  }
+
   const hasProfile = !!input.profile;
   const hasDuration = (input.hours ?? 0) > 0 || (input.minutes ?? 0) > 0;
 
