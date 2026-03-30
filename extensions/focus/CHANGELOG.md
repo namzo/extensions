@@ -1,6 +1,6 @@
 # Focus Changelog
 
-## [Enhancement] - {PR_MERGE_DATE}
+## [Enhancement] - 2026-03-30
 
 - Added `@Focus` AI extension support — type `@Focus` in Raycast AI Chat to start/stop sessions and take breaks using natural language.
 - Start commands now automatically launch the Focus app if it isn't running, instead of showing an error.
